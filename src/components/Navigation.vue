@@ -1,0 +1,32 @@
+<template>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <router-link to="/" class="navbar-brand">Stock Trader</router-link>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <router-link activeClass="active" to="/portfolio" tag="li"><a>Portfolio</a></router-link>
+                    <router-link activeClass="active" to="/stocks" tag="li"><a>Stocks</a></router-link>
+                </ul>
+                <strong class="navbar-text navbar-right">Funds: 10,000</strong>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">End Day</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+    nav {
+        margin-top: 30px;
+    }
+</style>
