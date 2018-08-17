@@ -10,9 +10,9 @@
                     <router-link activeClass="active" to="/portfolio" tag="li"><a>Portfolio</a></router-link>
                     <router-link activeClass="active" to="/stocks" tag="li"><a>Stocks</a></router-link>
                 </ul>
-                <strong class="navbar-text navbar-right">Funds: 10,000</strong>
+                <strong class="navbar-text navbar-right">Funds: {{ funds | currency }}</strong>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">End Day</a></li>
+                    <li><a href="#" @click="onEndDay">End Day</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -21,12 +21,21 @@
 
 <script>
 export default {
-
-}
+  computed: {
+    funds() {
+      return this.$store.state.portfolio.funds
+    }
+  },
+  methods: {
+    onEndDay() {
+      this.$store.dispatch("randomizeStockPrices");
+    }
+  }
+};
 </script>
 
 <style scoped>
-    nav {
-        margin-top: 30px;
-    }
+nav {
+  margin-top: 30px;
+}
 </style>
