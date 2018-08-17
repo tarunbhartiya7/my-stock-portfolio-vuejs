@@ -21,6 +21,7 @@
                     <button
 						class="btn btn-success"
                         @click="onBuy"
+                        :disabled="insufficientFund"
                     >Buy
                     </button>                   
                 </div>
@@ -38,6 +39,14 @@ export default {
     return {
       quantity: ""
     };
+  },
+  computed: {
+    insufficientFund() {
+      return this.quantity * this.stock.price > this.funds
+    },
+    funds() {
+      return this.$store.state.portfolio.funds
+    }
   },
   methods: {
     onBuy() {
